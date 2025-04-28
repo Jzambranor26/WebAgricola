@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroInsumos S.A. - Productos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/logo.jpeg" alt="AgroInsumos S.A." height="40" class="me-2">
+                <span class="fw-bold">AgroInsumos S.A.</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+                <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <button id="carrito-icono" class="btn btn-dark position-relative" data-bs-toggle="modal" data-bs-target="#modal-carrito">
+                        <i class="fas fa-shopping-cart me-1"></i>
+                        <span id="contador-carrito" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Modal del Carrito -->
+    <div class="modal fade" id="modal-carrito" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Tu Carrito</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="lista-carrito" class="lista-carrito">
+                        <!-- Productos dinámicos aquí -->
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center py-3 border-top">
+                        <h5 class="mb-0">Total:</h5>
+                        <h4 class="mb-0 text-success fw-bold">$<span id="total-carrito">0</span></h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="vaciar-carrito" class="btn btn-outline-danger me-auto">
+                        <i class="fas fa-trash-alt me-1"></i> Vaciar
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
+                    <button id="pagar-carrito" class="btn btn-success">
+                        <i class="fas fa-credit-card me-1"></i> Pagar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="py-5 mt-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h1 class="fw-bold mb-3">Nuestros Productos</h1>
+                <p class="lead text-muted">Calidad garantizada para tus cultivos</p>
+            </div>
+            
+            <!-- Filtros -->
+            <div class="row mb-4">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <div class="input-group">
+                        <span class="input-group-text bg-success text-white"><i class="fas fa-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Buscar productos...">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <select class="form-select">
+                        <option selected>Ordenar por</option>
+                        <option>Precio: menor a mayor</option>
+                        <option>Precio: mayor a menor</option>
+                        <option>Más populares</option>
+                        <option>Novedades</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Lista de productos -->
+            <div class="row g-4">
+                <!-- Producto 1 - Fertilizantes Orgánicos -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="card product-card h-100 border-0 shadow-sm">
+                        <div class="badge bg-success position-absolute top-0 end-0 m-2">Nuevo</div>
+                        <img src="img/fertilizante.jpeg" class="card-img-top product-img" alt="Fertilizantes Orgánicos">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="h5 mb-0">Fertilizantes Orgánicos</h3>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="text-muted ms-1">(24)</span>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">Fertilizante natural para todo tipo de cultivos</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="h4 text-success fw-bold">$45.00</span>
+                                    <small class="text-muted">/kg</small>
+                                </div>
+                                <button class="btn btn-success btn-comprar" data-id="1" data-nombre="Fertilizantes Orgánicos" data-precio="45">
+                                    <i class="fas fa-cart-plus me-1"></i> Añadir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2 - Semillas de Maíz -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="card product-card h-100 border-0 shadow-sm">
+                        <div class="badge bg-danger position-absolute top-0 end-0 m-2">-15%</div>
+                        <img src="img/semilla.jpeg" class="card-img-top product-img" alt="Semillas de Maíz">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="h5 mb-0">Semillas de Maíz</h3>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-muted ms-1">(36)</span>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">Semillas certificadas de alto rendimiento</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="h4 text-success fw-bold">$35.00</span>
+                                    <small class="text-muted">/bolsa</small>
+                                    <small class="text-decoration-line-through text-muted ms-2">$41.18</small>
+                                </div>
+                                <button class="btn btn-success btn-comprar" data-id="2" data-nombre="Semillas de Maíz" data-precio="35">
+                                    <i class="fas fa-cart-plus me-1"></i> Añadir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3 - Pesticida Natural -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="card product-card h-100 border-0 shadow-sm">
+                        <img src="img/pesticida.jpeg" class="card-img-top product-img" alt="Pesticida Natural">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="h5 mb-0">Pesticida Natural</h3>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="text-muted ms-1">(18)</span>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">Control de plagas sin químicos dañinos</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="h4 text-success fw-bold">$18.00</span>
+                                    <small class="text-muted">/litro</small>
+                                </div>
+                                <button class="btn btn-success btn-comprar" data-id="3" data-nombre="Pesticida Natural" data-precio="18">
+                                    <i class="fas fa-cart-plus me-1"></i> Añadir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4 - Herramientas Agrícolas -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="card product-card h-100 border-0 shadow-sm">
+                        <div class="badge bg-success position-absolute top-0 end-0 m-2">Nuevo</div>
+                        <img src="img/herramientas.jpeg" class="card-img-top product-img" alt="Herramientas Agrícolas">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h3 class="h5 mb-0">Herramientas Agrícolas</h3>
+                                <div class="text-warning small">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="text-muted ms-1">(12)</span>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted mb-3">Set completo de herramientas profesionales</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="h4 text-success fw-bold">$45.00</span>
+                                    <small class="text-muted">/set</small>
+                                </div>
+                                <button class="btn btn-success btn-comprar" data-id="4" data-nombre="Herramientas Agrícolas" data-precio="45">
+                                    <i class="fas fa-cart-plus me-1"></i> Añadir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paginación -->
+            <nav aria-label="Page navigation" class="mt-5">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Siguiente</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">AgroInsumos S.A.</h5>
+                    <p>Proveedores de insumos agrícolas de calidad para mejorar tu producción y cosecha.</p>
+                    <div class="social-icons">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50">Inicio</a></li>
+                        <li class="mb-2"><a href="productos.html" class="text-white-50">Productos</a></li>
+                        <li class="mb-2"><a href="index.html#nosotros" class="text-white-50">Nosotros</a></li>
+                        <li><a href="contacto.html" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Calle Agricultura 123, Zona Rural</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +593 9 6713 2729</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@agroinsumos.cl</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Horario</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Lunes - Viernes: 9:00 - 18:00</li>
+                        <li>Sábado: 9:00 - 14:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 AgroInsumos S.A. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Desarrollado con <i class="fas fa-heart text-danger"></i> por el Grupo 10 Interacción Humano Computador</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script del carrito -->
+    <script src="js/script.js"></script>
+</body>
+</html>

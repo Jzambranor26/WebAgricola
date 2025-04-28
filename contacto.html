@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroInsumos S.A. - Contacto</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init('-E40gaCXkloRTx9yf'); 
+    </script>
+    <!-- Estilos personalizados -->
+    <style src="css/estilos.css"></style>"
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/logo.jpeg" alt="AgroInsumos S.A." height="40" class="me-2">
+                <span class="fw-bold">AgroInsumos S.A.</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
+                </ul>
+                <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <button id="carrito-icono" class="btn btn-dark position-relative" data-bs-toggle="modal" data-bs-target="#modal-carrito">
+                        <i class="fas fa-shopping-cart me-1"></i>
+                        <span id="contador-carrito" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Modal del Carrito -->
+    <div class="modal fade" id="modal-carrito" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">Tu Carrito</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="lista-carrito" class="lista-carrito">
+                        <!-- Productos dinámicos aquí -->
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center py-3 border-top">
+                        <h5 class="mb-0">Total:</h5>
+                        <h4 class="mb-0 text-success fw-bold">$<span id="total-carrito">0</span></h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="vaciar-carrito" class="btn btn-outline-danger me-auto">
+                        <i class="fas fa-trash-alt me-1"></i> Vaciar
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
+                    <button id="pagar-carrito" class="btn btn-success">
+                        <i class="fas fa-credit-card me-1"></i> Pagar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="py-5 mt-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h1 class="fw-bold mb-3">Contáctanos</h1>
+                <p class="lead text-muted">¿Tienes preguntas? Escríbenos y te responderemos pronto</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <form id="form-contacto">
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre completo</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label">Teléfono (opcional)</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingresa tu teléfono">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="asunto" class="form-label">Asunto</label>
+                                    <select class="form-select" id="asunto" name="asunto" required>
+                                        <option value="" selected disabled>Selecciona un asunto</option>
+                                        <option value="Consulta sobre productos">Consulta sobre productos</option>
+                                        <option value="Soporte técnico">Soporte técnico</option>
+                                        <option value="Ventas al por mayor">Ventas al por mayor</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100 py-2">
+                                    <i class="fas fa-paper-plane me-2"></i> Enviar mensaje
+                                </button>
+                            </form>
+                            <div id="mensaje-exito" class="alert alert-success mt-3 mb-0 d-none" role="alert">
+                                ¡Mensaje enviado con éxito! Nos contactaremos pronto.
+                            </div>
+                            <div id="mensaje-error" class="alert alert-danger mt-3 mb-0 d-none" role="alert">
+                                Error al enviar el mensaje. Por favor intente nuevamente.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h2 class="h4 mb-4">Información de contacto</h2>
+                            
+                            <div class="mb-4 d-flex">
+                                <div class="bg-success bg-opacity-10 p-3 rounded me-3">
+                                    <i class="fas fa-map-marker-alt text-success fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Visítanos</h5>
+                                    <p class="text-muted mb-0">Calle Agricultura 123, Zona Rural</p>
+                                    <a href="#" class="text-success small">Ver en mapa</a>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4 d-flex">
+                                <div class="bg-success bg-opacity-10 p-3 rounded me-3">
+                                    <i class="fas fa-phone-alt text-success fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Teléfonos</h5>
+                                    <p class="text-muted mb-1">Ventas: +56 9 1234 5678</p>
+                                    <p class="text-muted mb-0">Soporte: +56 9 8765 4321</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4 d-flex">
+                                <div class="bg-success bg-opacity-10 p-3 rounded me-3">
+                                    <i class="fas fa-envelope text-success fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Correos electrónicos</h5>
+                                    <p class="text-muted mb-1">Ventas: ventas@agroinsumos.cl</p>
+                                    <p class="text-muted mb-0">Soporte: soporte@agroinsumos.cl</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex">
+                                <div class="bg-success bg-opacity-10 p-3 rounded me-3">
+                                    <i class="far fa-clock text-success fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Horario de atención</h5>
+                                    <p class="text-muted mb-1">Lunes a Viernes: 9:00 - 18:00 hrs</p>
+                                    <p class="text-muted mb-0">Sábado: 9:00 - 14:00 hrs</p>
+                                </div>
+                            </div>
+                            
+                            <hr class="my-4">
+                            
+                            <h5 class="mb-3">Síguenos en redes</h5>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="btn btn-outline-success btn-sm rounded-circle">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-success btn-sm rounded-circle">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-success btn-sm rounded-circle">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-success btn-sm rounded-circle">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">AgroInsumos S.A.</h5>
+                    <p>Proveedores de insumos agrícolas de calidad para mejorar tu producción y cosecha.</p>
+                    <div class="social-icons">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50">Inicio</a></li>
+                        <li class="mb-2"><a href="productos.html" class="text-white-50">Productos</a></li>
+                        <li class="mb-2"><a href="index.html#nosotros" class="text-white-50">Nosotros</a></li>
+                        <li><a href="contacto.html" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Calle Agricultura 123, Zona Rural</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +56 9 6713 2729</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@agroinsumos.cl</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Horario</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Lunes - Viernes: 9:00 - 18:00</li>
+                        <li>Sábado: 9:00 - 14:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 AgroInsumos S.A. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Desarrollado con <i class="fas fa-heart text-danger"></i> por el Grupo 10 Interacción Humano Computador</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script del carrito + formulario -->
+    <script src="js/script.js"></script>          
+</body>
+</html>
